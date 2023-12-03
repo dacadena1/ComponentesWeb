@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Uso de Componentes Modulares</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Instancia del Componente Contenedor -->
+    <my-container>
+        <!-- Contenido del Encabezado -->
+        <my-header slot="header"></my-header>
+
+        <!-- Contenido del Formulario -->
+        <my-form slot="form">
+            <!-- Campo de Entrada del Formulario -->
+            <my-input label="Nombre" type="text"></my-input>
+            <my-input label="Correo electrónico" type="email"></my-input>
+            <!-- Otros campos de entrada según sea necesario -->
+        </my-form>
+
+        <!-- Contenido del Cuerpo -->
+        <my-content slot="content"></my-content>
+
+        <!-- Contenido del Pie de Página -->
+        <my-footer slot="footer">
+            <p>Pie de página asombroso.</p>
+        </my-footer>
+    </my-container>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
+

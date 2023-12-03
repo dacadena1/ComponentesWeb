@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter Component Example</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #22a078;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Asegura que el contenedor ocupe al menos el 100% de la altura de la ventana */
+      margin: 0;
+    }
+
+    /* Estilos adicionales para el componente */
+    counter-component {
+      padding: 10px;
+      margin: 10px;
+      border-radius: 5px;
+    }
+    h1, h2 {
+      color: white; /* Cambiar el color del texto a blanco */
+    }
+  </style>
+</head>
+<body>
+  <h1>Actividad Practica 7</h1><br>
+  <h2>Diego Cadena</h2>
+  <br>
+  <div>
+    <!-- Usa el componente CounterComponent -->
+    <counter-component></counter-component>
+
+    <!-- Puedes agregar múltiples instancias del componente si es necesario -->
+    <counter-component id="counter1"></counter-component>
+    <counter-component id="counter2"></counter-component>
+  </div>
+
+  <script src="js/CounterComponent.js"></script>
+
+  <script>
+    // Ejemplo de gestión reactiva del estado
+    const counter1 = document.getElementById('counter1');
+    const counter2 = document.getElementById('counter2');
+
+    counter1.addEventListener('counterChange', () => {
+      console.log('Counter 1 changed. New value:', counter1._counter);
+    });
+
+    counter2.addEventListener('counterChange', () => {
+      console.log('Counter 2 changed. New value:', counter2._counter);
+    });
+  </script>
+</body>
+</html>
+

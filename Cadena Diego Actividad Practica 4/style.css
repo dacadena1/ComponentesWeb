@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: lightgreen; /* Cambia lightgreen por el color de fondo que prefieras */
+  }
+  
+  #container {
+    text-align: center;
+  }
+  
+  #interactive-component {
+    margin-bottom: 20px;
+  }
+  
+  #info-text {
+    display: none;
+    color: rgb(255, 255, 255);
+  }
+  
+  #interactive-button {
+    margin-top: 10px;
+  }
+  
