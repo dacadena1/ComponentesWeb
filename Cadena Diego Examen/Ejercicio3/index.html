@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vue.js Slots Example</title>
+  <!-- Incluye Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body style="background-color: rgb(64, 214, 139);">
+
+<div id="app" style="margin: 20px;">
+  <!-- Uso de contenedor-component con contenido personalizado -->
+  <contenedor-component>
+    <!-- Contenido personalizado para el encabezado -->
+    <template v-slot:encabezado>
+      <h1 style="color: rgb(48, 44, 25);">Mi Encabezado Personalizado</h1>
+    </template>
+
+    <!-- Contenido personalizado para el cuerpo -->
+    <template v-slot:cuerpo>
+      <p>Este es mi contenido personalizado para el cuerpo.</p>
+    </template>
+  </contenedor-component>
+
+  <!-- Uso de contenedor-component con contenido predeterminado -->
+  <contenedor-component></contenedor-component>
+</div>
+
+<!-- Componente contenedor-component -->
+<script>
+  // Definición del componente contenedor-component
+  Vue.component('contenedor-component', {
+    template: `
+      <div class="contenedor-component" style="border: 1px solid #ccc; padding: 10px; margin: 10px;">
+        <div class="encabezado">
+          <!-- Slot para el encabezado -->
+          <slot name="encabezado">
+            <!-- Contenido predeterminado para el encabezado si no se proporciona ningún contenido -->
+            <h2>Encabezado predeterminado</h2>
+          </slot>
+        </div>
+        <div class="cuerpo">
+          <!-- Slot para el cuerpo -->
+          <slot name="cuerpo">
+            <!-- Contenido predeterminado para el cuerpo si no se proporciona ningún contenido -->
+            <p>Cuerpo predeterminado</p>
+          </slot>
+        </div>
+      </div>
+    `
+  });
+
+  new Vue({
+    el: '#app'
+  });
+</script>
+
+</body>
+</html>
