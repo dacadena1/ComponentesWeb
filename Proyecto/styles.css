@@ -1,0 +1,33 @@
+/* Agrega este estilo en tu archivo CSS o en la etiqueta <style> en el head */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200px;
+    background-color: #007bff; /* Color azul (puedes cambiarlo según tus preferencias) */
+    padding-top: 20px;
+}
+
+/* Modifica el estilo de los elementos del menú lateral */
+.list-group-item {
+    cursor: pointer;
+    color: #000000; /* Color de texto blanco para contrastar con el fondo azul */
+    background-color: #007bff; /* Color de fondo azul para los elementos del menú */
+}
+/* Agrega este estilo en tu archivo CSS o en la etiqueta <style> en el head */
+#eventoForm {
+    max-width: 400px; /* Establece un ancho máximo para el formulario */
+    margin: 0 auto; /* Centra el formulario horizontalmente */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Añade espacio entre los grupos de formulario */
+}
+
+/* Agrega espacio en la parte superior e inferior del formulario */
+#eventoForm {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="styles.css">
+    <script src="../sidebar.js"></script> 
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        /* Estilos para el slot "content" */
+custom-content {
+    display: block;
+    padding: 20px;
+    background-image: url(../img/fondo1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; /* Cubre completamente el contenido */
+    background-attachment: fixed; /* Fondo estático con el scroll */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Estilos adicionales para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #031f3b;
+}
+
+th {
+    background-color: #5c2bcf;
+    color: #fff;
+}
+
+tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+    </style>
+    <title>Eventos Asignados</title>
+</head> 
+<body>
+    <!-- Utilización del componente con slots -->
+    <custom-container>
+        <!-- Título del evento asignado -->
+        <custom-header slot="header">Eventos Asignados</custom-header>
+        
+        <!-- Contenido detallado de los eventos asignados -->
+        <custom-content slot="content">
+            <div class="container mt-5" id="eventosContainer">
+                <!-- Tabla para mostrar los eventos -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Título</th>
+                            <th>Completado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaEventosBody">
+                        <!-- Contenido de la tabla se agregará aquí dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </custom-content>
+        
+        <!-- Pie de página con el año actual -->
+        <custom-footer slot="footer">© 2023</custom-footer>
+    </custom-container>
+
+    <script>
+        const apiUrl = 'https://jsonplaceholder.typicode.com/todos';
+
+        // Ejemplo de solicitud Fetch API
+        fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la solicitud');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Manipular los datos recibidos, en este caso, simplemente los logueamos
+            console.log(data);
+
+            // Agregar los datos a la tabla en el documento
+            const tablaEventosBody = document.getElementById('tablaEventosBody');
+            data.forEach(evento => {
+                const filaEvento = document.createElement('tr');
+                filaEvento.innerHTML = `
+                    <td>${evento.id}</td>
+                    <td>${evento.title}</td>
+                    <td>${evento.completed ? 'Sí' : 'No'}</td>
+                `;
+                tablaEventosBody.appendChild(filaEvento);
+            });
+        })
+        .catch(error => console.error(error));
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebar = new Sidebar(seleccionarOpcion);
+            sidebar.render(document.body);
+
+            function seleccionarOpcion(opcionId) {
+                alert(`Seleccionaste la opción: ${opcionId}`);
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>
+

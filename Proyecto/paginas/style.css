@@ -1,0 +1,30 @@
+/* Estilos para el slot "content" */
+custom-content {
+    display: block;
+    padding: 20px;
+    background-color: #1075d9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos adicionales para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #031f3b;
+}
+
+th {
+    background-color: #5c2bcf;
+    color: #fff;
+}
+
+tbody tr:hover {
+    background-color: #e9ecef;
+}
